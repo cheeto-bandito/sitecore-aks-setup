@@ -1,19 +1,19 @@
 param(
     [Parameter()]
     [ValidateNotNullOrEmpty()]
-    [string]$Region = 'westeurope',
+    [string]$Region = 'eastus',
 
     [Parameter()]
     [ValidateNotNullOrEmpty()]
-    [string]$ResourceGroup = 'Symposium2020',
+    [string]$ResourceGroup = 'deg-sitecore-sandbox',
 
     [Parameter()]
     [ValidateNotNullOrEmpty()]
-    [string]$AksName = 'Symposium2020',
+    [string]$AksName = 'deg-sc101-xm1',
 
     [Parameter()]
     [ValidateNotNullOrEmpty()]
-    [string]$AcrName = 'Symposium2020',
+    [string]$AcrName = 'degreg',
 
     [Parameter(Mandatory = $true)]
     [ValidateNotNullOrEmpty()]
@@ -23,7 +23,7 @@ param(
 # Setup CLI & Parameters for AKS creation
 Write-Host "--- Setting up CLI & Params ---" -ForegroundColor Blue
 
-$aksVersion = "1.17.11" #$(az aks get-versions -l $Region --query 'orchestrators[-1].orchestratorVersion' -o tsv)
+$aksVersion = "1.19.11" #$(az aks get-versions -l $Region --query 'orchestrators[-1].orchestratorVersion' -o tsv)
 Write-Host "--- Complete: CLI & Params Configured ---" -ForegroundColor Green
 
 # create AKS instance
@@ -59,7 +59,7 @@ az aks nodepool add --resource-group $ResourceGroup `
     --cluster-name $AksName `
     --os-type Windows `
     --name win `
-    --node-vm-size Standard_D8s_v3 `
+    --node-vm-size Standard_D4s_v3 `
     --node-count 1 
 Write-Host "--- Complete: Windows Server Node Pool Created ---" -ForegroundColor Green
 

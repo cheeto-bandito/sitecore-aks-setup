@@ -1,15 +1,15 @@
 param(
     [Parameter()]
     [ValidateNotNullOrEmpty()]
-    [string]$Region = 'westeurope',
+    [string]$Region = 'eastus',
 
     [Parameter()]
     [ValidateNotNullOrEmpty()]
-    [string]$ResourceGroup = 'Symposium2020',
+    [string]$ResourceGroup = 'deg-sitecore-sandbox',
 
     [Parameter()]
     [ValidateNotNullOrEmpty()]
-    [string]$MyRegistry = 'Symposium2020',
+    [string]$MyRegistry = 'degreg',
 
     [Parameter()]
     [ValidateNotNullOrEmpty()]
